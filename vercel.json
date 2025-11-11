@@ -5,11 +5,11 @@
       "headers": [
         {
           "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
+          "value": "*"
         },
         {
           "key": "Content-Security-Policy",
-          "value": "frame-ancestors 'self' *"
+          "value": "frame-ancestors *"
         }
       ]
     }
