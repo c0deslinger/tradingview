@@ -26,19 +26,50 @@ Website ini menggunakan format TradingView:
 - `style.css` - Styling website
 - `script.js` - Logic untuk membaca parameter dan embed widget
 - `README.md` - Dokumentasi ini
+- `vercel.json` - Konfigurasi Vercel untuk headers dan routing
+- `_headers` - Konfigurasi headers alternatif untuk Netlify/Vercel
 - `.htaccess` - Konfigurasi Apache untuk X-Frame-Options (opsional)
-- `_headers` - Konfigurasi headers untuk Netlify/Vercel (opsional)
+
+## Deployment di Vercel
+
+Website ini sudah dikonfigurasi untuk deployment di Vercel.
+
+### Cara Deploy:
+
+1. **Install Vercel CLI** (opsional):
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Deploy via CLI**:
+   ```bash
+   cd tradingview-website
+   vercel
+   ```
+
+3. **Atau deploy via Vercel Dashboard**:
+   - Push code ke GitHub/GitLab/Bitbucket
+   - Import project di Vercel dashboard
+   - Vercel akan otomatis detect dan deploy
+
+### Konfigurasi Vercel:
+
+File `vercel.json` sudah dikonfigurasi dengan:
+- `X-Frame-Options: GOFORIT` - Mengizinkan embedding dalam iframe
+- `Content-Security-Policy: frame-ancestors *;` - Policy modern untuk iframe
+- `Access-Control-Allow-Origin: *` - CORS untuk cross-origin requests
 
 ## X-Frame-Options
 
 Website ini dikonfigurasi dengan `X-Frame-Options: GOFORIT` untuk mengizinkan embedding dalam iframe dari domain manapun.
 
 **Konfigurasi:**
-- Meta tag di `index.html` untuk client-side
-- `.htaccess` untuk Apache server
-- `_headers` untuk Netlify/Vercel deployment
+- `vercel.json` - Konfigurasi utama untuk Vercel (HTTP headers)
+- Meta tag di `index.html` - Fallback client-side
+- `_headers` - Alternatif untuk Netlify/Vercel
+- `.htaccess` - Untuk Apache server (jika tidak menggunakan Vercel)
 
-**Catatan:** Untuk production, pastikan server mengirim HTTP header `X-Frame-Options: GOFORIT` atau gunakan `Content-Security-Policy: frame-ancestors *;` yang lebih modern.
+**Catatan:** Vercel akan otomatis menggunakan `vercel.json` untuk mengatur HTTP headers. Pastikan file `vercel.json` ada di root folder saat deploy.
 
 ## Catatan
 
