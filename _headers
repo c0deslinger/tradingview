@@ -1,0 +1,5 @@
+# Netlify/Vercel headers configuration
+# X-Frame-Options: GOFORIT
+X-Frame-Options: GOFORIT
+Content-Security-Policy: frame-ancestors *;
+

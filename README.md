@@ -26,11 +26,25 @@ Website ini menggunakan format TradingView:
 - `style.css` - Styling website
 - `script.js` - Logic untuk membaca parameter dan embed widget
 - `README.md` - Dokumentasi ini
+- `.htaccess` - Konfigurasi Apache untuk X-Frame-Options (opsional)
+- `_headers` - Konfigurasi headers untuk Netlify/Vercel (opsional)
+
+## X-Frame-Options
+
+Website ini dikonfigurasi dengan `X-Frame-Options: GOFORIT` untuk mengizinkan embedding dalam iframe dari domain manapun.
+
+**Konfigurasi:**
+- Meta tag di `index.html` untuk client-side
+- `.htaccess` untuk Apache server
+- `_headers` untuk Netlify/Vercel deployment
+
+**Catatan:** Untuk production, pastikan server mengirim HTTP header `X-Frame-Options: GOFORIT` atau gunakan `Content-Security-Policy: frame-ancestors *;` yang lebih modern.
 
 ## Catatan
 
-- Website menggunakan TradingView Symbol Overview widget
+- Website menggunakan TradingView Advanced Chart widget
 - Theme: Dark mode
 - Exchange: Binance (default)
 - Pair: USDT (default)
+- Dapat di-embed dalam iframe dari domain manapun
 
